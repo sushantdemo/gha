@@ -7,5 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Failing step"
-        run: |
-          echo "ls -aaa"
+        run: ls -aaa
