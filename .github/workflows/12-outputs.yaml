@@ -18,9 +18,14 @@ jobs:
         run: echo $GITHUB_OUTPUT
       - name: Build
         id: build
-        run: echo "status=${{ inputs.build-status }}" >> $GITHUB_OUTPUT
+        run: |
+          echo "status=${{ inputs.build-status }}" >> $GITHUB_OUTPUT
+          echo "myname=sushant" >> $GITHUB_OUTPUT
+          echo "city=Jaysingpur" >> $GITHUB_OUTPUT
+          echo "year=2024" >> $GITHUB_OUTPUT
       - name: Checking the GITHUB_OUTPUT
-        run: cat "$GITHUB_OUTPUT"
+        run: |
+          cat "$GITHUB_OUTPUT"
     
   deploy:
     runs-on: ubuntu-latest
@@ -30,5 +35,6 @@ jobs:
         if: ${{ needs.build.outputs.build-status == 'success'}}
         run: echo "Deploying"
       - name: Cat github oputput
-        run: cat "$GITHUB_OUTPUT"
+        run: |
+          cat "$GITHUB_OUTPUT"
       
