@@ -28,7 +28,7 @@ jobs:
           exit 1
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ success() && !inputs.dry-run }}
+
     needs:
         - build
     environment: ${{ inputs.target}}
