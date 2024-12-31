@@ -12,13 +12,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      name: ${{ steps.Build.outputs.status }}
+      build-status: ${{ steps.build.outputs.status }}
     steps:
       - name: Print GITHUB_OUTPUT path
         run: echo $GITHUB_OUTPUT
       - name: Build
-        id: Build
+        id: build
         run: echo "status=${{ inputs.build-status }}" >> $GITHUB_OUTPUT
+    
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy
+        if: ${{ needs.build.outputs.build-status == 'success'}}
+        run: echo "Deploying"
       
-      - name: Print GITHUB_OUTPUT Again
-        run: echo $GITHUB_OUTPUT
