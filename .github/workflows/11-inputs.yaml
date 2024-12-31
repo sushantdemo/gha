@@ -25,9 +25,12 @@ jobs:
       - name: Build
         run: |
           echo "Building from tag ${{ inputs.tag }}"
+          exit 1
   deploy:
     runs-on: ubuntu-latest
     if: ${{ success() && !inputs.dry-run }}
+    needs:
+        - build
     environment: ${{ inputs.target}}
     steps:
       - name: Deploy
