@@ -6,7 +6,7 @@ on:
         type: environment
         default: stage
 env:
-  "my-env-value: ${{vars.MY_ENV_VALUE || 'default_value'}}"
+  "my-env-value: ${{ inputs.target-env || 'default_value'}}"
 run-name: 16 - Working with Environments | env - ${{ inputs.target-env}}
 jobs:
   echo:
