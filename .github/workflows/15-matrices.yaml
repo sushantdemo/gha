@@ -51,6 +51,3 @@ jobs:
     steps:
       - name: Print Dummy value
         run: echo "${{ matrix.color}}-${{matrix.shape}}-${{matrix.size}}"
-
-
-
