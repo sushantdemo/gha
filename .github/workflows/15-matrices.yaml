@@ -19,6 +19,8 @@ jobs:
           - os: ubuntu-latest
             node-version: 21.x
             tag: experimental
+
+
     steps:
       - name: Setup node
         uses: actions/setup-node@v3
@@ -34,6 +36,21 @@ jobs:
       - name: Upload test result
         run: echo "Uploading test results"
 
+  include-example:
+    name: ${{ matrix.color}}-${{matrix.shape}}-${{matrix.size}}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        color: [red, green]
+        shape: [ circle, square]
+        size: [ small, large]
+        include:
+          - color: red
+            shape: circle
+
+    steps:
+      - name: Print Dummy value
+        run: echo "${{ matrix.color}}-${{matrix.shape}}-${{matrix.size}}"
 
 
 
