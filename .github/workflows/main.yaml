@@ -6,6 +6,10 @@ on:
       target_environment:
         type: string
         default: stage
+      branch:
+        type: string
+        default: eat/gha_action
+      
 
 jobs:
   deploy:
@@ -15,3 +19,4 @@ jobs:
       az_resource_group: 'myaz_group'
       provision_databricks: false
       target_environment: ${{ inputs.target_environment }}
+      branch: ${{ inputs.branch }}
