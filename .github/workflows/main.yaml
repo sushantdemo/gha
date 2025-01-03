@@ -1,0 +1,22 @@
+name: 18.2 - Reusable Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        type: string
+        default: stage
+      branch:
+        type: string
+        default: eat/gha_action
+      
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/19-az-setup.yaml
+    with:
+      deply_version: 11.9
+      az_resource_group: 'myaz_group'
+      provision_databricks: false
+      target_environment: ${{ inputs.target_environment }}
+      branch: ${{ inputs.branch }}
