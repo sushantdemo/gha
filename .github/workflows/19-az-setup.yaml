@@ -11,8 +11,6 @@ on:
         type: string
       target_environment:
         type: string
-      branch:
-        type: string
 
 
 jobs:
@@ -22,8 +20,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.branch }}
       
       - name: Python Install dependencies
         run: |
@@ -35,7 +31,6 @@ jobs:
           echo "Azure cli installed"
       - name: Deploy
         run: |
-          echo "Branch: ${{ inputs.branch }}"
           echo "Target environment: ${{ inputs.target_environment }}"
           echo "Deployment version: ${{ inputs.deply_version }}"
           echo "Resource group: ${{ inputs.az_resource_group }}"
