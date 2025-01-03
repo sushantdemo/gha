@@ -1,4 +1,4 @@
-name: 19 - Reusable Workflow
+name: Azure Lab setup
 
 on:
   workflow_dispatch:

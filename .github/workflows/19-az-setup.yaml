@@ -1,4 +1,4 @@
-name: Azure Lab setup
+name: Azure Lab setup - reusable workflow
 run-name: Azure lab setup ${{ github.event_name }}-${{ inputs.deply_version}}
 on:
   workflow_call:
