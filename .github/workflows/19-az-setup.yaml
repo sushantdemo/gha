@@ -1,0 +1,41 @@
+name: Azure Lab setup
+run-name: Azure lab setup ${{ github.event_name }}-${{ inputs.deply_version}}
+on:
+  workflow_call:
+    inputs:
+      deply_version:
+        type: string
+      az_resource_group:
+        type: string
+      provision_databricks:
+        type: string
+      target_environment:
+        type: string
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.target_environment }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      
+      - name: Python Install dependencies
+        run: |
+          echo "Installing the python dependencies"
+          echo "Python Dependencies installation completed"
+      - name: Install Azure-Cli
+        run: |
+          echo "Installing the Azure Cli"
+          echo "Azure cli installed"
+      - name: Deploy
+        run: |
+          echo "${{ github.job.environment }}"
+          echo "${{ secrets.cost_api_token }}"
+          echo "${{ secrets.call_api_token }}"
+          echo "${{ secrets.hcrl_url }}"
+          echo "${{ secrets.hcrl_token }}"
+          echo "All secretes from repo printed"
+
+
