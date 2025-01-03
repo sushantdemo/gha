@@ -41,5 +41,6 @@ jobs:
           echo "hcrl_url: ${{ secrets.hcrl_url }}"
           echo "hcrl_token: ${{ secrets.hcrl_token }}"
           echo "All secretes from repo printed"
-
+      - name: Debug Environment Variables
+        run: env
 
