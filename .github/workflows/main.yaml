@@ -16,3 +16,4 @@ jobs:
       az_resource_group: 'myaz_group'
       provision_databricks: false
       target_environment: ${{ inputs.target_environment }}
+    secrets: inherit

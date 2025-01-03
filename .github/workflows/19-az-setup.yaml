@@ -35,11 +35,11 @@ jobs:
           echo "Deployment version: ${{ inputs.deply_version }}"
           echo "Resource group: ${{ inputs.az_resource_group }}"
           echo "Provision Databricks: ${{ inputs.provision_databricks }}"
-          echo "Secrets for environment ${{ inputs.target_environment }}:"
-          echo "${{ secrets.cost_api_token }}"
-          echo "${{ secrets.call_api_token }}"
-          echo "${{ secrets.hcrl_url }}"
-          echo "${{ secrets.hcrl_token }}"
+          echo "Secrets for environment: ${{ inputs.target_environment }}"
+          echo "cost_api_token: ${{ secrets.cost_api_token }}"
+          echo "call_api_token: ${{ secrets.call_api_token }}"
+          echo "hcrl_url: ${{ secrets.hcrl_url }}"
+          echo "hcrl_token: ${{ secrets.hcrl_token }}"
           echo "All secretes from repo printed"
 
 
