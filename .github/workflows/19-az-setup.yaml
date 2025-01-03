@@ -31,7 +31,12 @@ jobs:
           echo "Azure cli installed"
       - name: Deploy
         run: |
-          echo "${{ github.job.environment }}"
+          echo "Branch: ${{ inputs.branch }}"
+          echo "Target environment: ${{ inputs.target_environment }}"
+          echo "Deployment version: ${{ inputs.deply_version }}"
+          echo "Resource group: ${{ inputs.az_resource_group }}"
+          echo "Provision Databricks: ${{ inputs.provision_databricks }}"
+          echo "Secrets for environment ${{ inputs.target_environment }}:"
           echo "${{ secrets.cost_api_token }}"
           echo "${{ secrets.call_api_token }}"
           echo "${{ secrets.hcrl_url }}"
